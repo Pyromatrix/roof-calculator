@@ -1,7 +1,6 @@
-# Secondtimer with tests
-No any focusing for mobile responsiveness. Just developing React apps for practicing.
+# Roof renovation price calculator
 
-## Online version: https://secondtimer.netlify.app/
+## Online version: https://kattolaskin.netlify.app/
 
 ### `npm start`
 

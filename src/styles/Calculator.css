@@ -1,0 +1,163 @@
+/* Formin numerovalitsimen poisto */
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+html, body, #root, #root>div {
+
+    margin: 0;
+    background-image: url('../images/background.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+
+    color: white;
+
+    
+}
+
+.main-div {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    flex-direction: column;
+    padding-top: 20px;
+
+}
+
+.buttons {
+    display: flex;
+    flex-direction: row; /* mobiili column */
+    width: auto;
+}
+
+.buttons button {
+    margin-bottom: 10px;
+}
+
+.tarjouslaskin-buttons {
+    width: 300px;
+    margin: 5px;
+    margin-bottom: 25px;
+}
+
+.inputs {
+    width: 100%;
+    margin-right: 5px;
+}
+
+.syotekentat {
+    width: 300px !important;
+
+    margin-bottom: 5px;
+}
+.form-group {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    text-align: center;
+    flex-direction: column;
+}
+
+/* Poistaa list style pisteen aiheuttaman marginin sekä itse pisteen*/
+ul, li {
+    margin: 0px;
+    padding: 0px;
+    list-style: none;
+}
+
+.wrapper {
+    flex-direction: row !important; /* TÄÄ MOBIILIIN COLUMN*/
+    display: flex;
+    overflow:visible;
+}
+
+.hinnat {
+    width: 300px;
+    background-color: WHITE;
+    color: #6f6f6f;
+    height: 768.8px;
+    margin-left: 5px;
+}
+
+.vaihto {
+    display: flex;
+}
+
+.form-check {
+    padding-left: 0 !important;
+}
+.form-check-input {
+    width: auto;
+}
+
+
+@media only screen and (min-width: 768px) { /* PUHELIN */
+
+    .buttons-mobiili {
+        display: none;
+    }
+
+}
+
+@media only screen and (max-width: 767px) { /* PUHELIN */
+
+    .wrapper {
+        flex-direction: column !important; /* TÄÄ MOBIILIIN COLUMN*/
+        display: flex;
+        margin-top: 20px;
+        width: 100%;
+    }
+
+
+    .main-div {
+        height: auto;
+    }
+
+   .hinnat {
+       height: 200px;
+       margin-left: 0px;
+       width: 80%;
+       margin-bottom: 20px;
+   }
+   .inputs {
+       margin-right: 0px;
+   }
+   .buttons {
+       margin-top: 10px;
+   }
+   .buttons-desktop {
+       display: none;
+   }
+
+   .right {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    text-align: center;
+    flex-direction: column;
+   }
+
+   .syotekentat {
+    width: 80% !important;
+    text-align: center;
+    }
+
+    
+    .tarjouslaskin-buttons {
+    margin: 5px;
+    width: 80%;
+    }
+
+}

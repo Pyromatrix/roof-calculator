@@ -11,6 +11,7 @@ class Calculator extends React.Component {
 
     this.state = {
       tarjouksia: false, // Alkuvaiheessa tallennettuja tarjouksia ei ole
+      myyntikatelaskelma: false,
       pintaAla: '', // Alustetaan input kentän value arvo, ilman tätä ensimmäinen tulostettu arvo ilman kenttään koskemista on defined. Uncontrolled --> Controlled
       vesikouru: '',
       syoksyputki: '',
@@ -27,9 +28,11 @@ class Calculator extends React.Component {
       seinatikas: '',
       ruodeLauta: '',
       peltiProfiili: '',
-      asiakas: '',
       vilpeElementti: '',
       ranniKulma: '',
+      pyydettyHinta: '',
+      myyntiKate: '',
+      kokonaisHintaState: '',
     };
     
 
@@ -64,28 +67,21 @@ class Calculator extends React.Component {
       peltiProfiili: '',
       tippalista: '',
       vilpeElementti: '',
-      asiakas: '',
       ranniKulma: '',
     });
   };
 
-  // Ylläpitää historialistan näkyvillä myös päivityksen jälkeen
-  componentDidMount() {
-    this.setHistoryState();
-  }
-
-  // Tallentaa history stateen localstoragen tarjouksia avaimesta kaikki tiedot 
-  setHistoryState = () => {
-    if (localStorage.tarjouksia) {
-      this.setState({ history: localStorage.tarjouksia.split('|') });
-    } else {
-      this.setState({ history: [] });
-    }
+  resetCalculations = () => { 
+    this.setState({
+      pyydettyHinta: '',
+      myyntiKate: '',
+      kokonaisHintaState: '',
+    });
   };
 
 
   // Tässä funktiossa lasketaan materiaalihinnat ja tallennetaan ne LocalStorageen.
-  saveToLocalStorage = () => {
+  calcPrice = () => {
 
     let kattopeltiHinta = '';
 
@@ -105,53 +101,25 @@ class Calculator extends React.Component {
           }
         }
       }
+    const kattopeltiHintaInt = parseInt(kattopeltiHinta, 10);
 
     
-    const vesikouruHinta = `${this.state.vesikouru * 13}`;     // Hinta: 13 - Päivitetty 17.12.2020
-    const syoksyputkiHinta = `${this.state.syoksyputki * 65}`; // Hinta: 65 - Päivitetty 17.12.2020
-    const harjapeltiHinta = `${this.state.harjapelti * 2.7}`;  // Hinta: 2,7 - Päivitetty 17.12.2020
-    const paatypeltiHinta = `${this.state.paatypelti * 2}`;  // Hinta: 2 - Päivitetty 17.12.2020
-    const jiiripeltiHinta = `${this.state.jiiripelti * 12}`;  // Hinta: 12 - Päivitetty 17.12.2020
-
-    const tippalistaHinta = `${this.state.tippalista * 4}`;  // Hinta: 4 - Päivitetty 17.12.2020
-    const savupiippuHinta = `${this.state.savupiippu * 35}`;   // Hinta: 35 - Päivitetty 17.12.2020
-    const vilpeKartioHinta = `${this.state.vilpeKartio * 20}`;  // Hinta: 20 - Päivitetty 17.12.2020
-    const vilpeKantikasHinta = `${this.state.vilpeKantikas * 30}`;  // Hinta: 30 - Päivitetty 17.12.2020
-    const otsalautaHinta = `${this.state.otsalauta * 1.8}`;  // Hinta: 1,8 - Päivitetty 17.12.2020
-    const lumiesteHinta = `${this.state.lumieste * 13}`;   // Hinta: 13 - Päivitetty 17.12.2020
-    const lapetikasHinta = `${this.state.lapetikas * 100}`;  // Hinta: 100 - Päivitetty 17.12.2020
-    const seinatikasHinta = `${this.state.seinatikas * 100}`;   // Hinta: 100 - Päivitetty 17.12.2020
-    const ranniKulmaHinta = `${this.state.ranniKulma * 20}`;   // Hinta: 20 - Päivitetty 17.12.2020
-    const vilpeElementtiHinta = `${this.state.vilpeElementti * 85}`;   // Hinta: 85 - Päivitetty 17.12.2020
-
-
-
-
-    const kattopeltiHintaInt = parseInt(kattopeltiHinta, 10);
-    const vesikouruHintaInt = parseInt(vesikouruHinta, 10);
-    const syoksyputkiHintaInt = parseInt(syoksyputkiHinta, 10);
-    const harjapeltiHintaInt = parseInt(harjapeltiHinta, 10);
-    const paatypeltiHintaInt = parseInt(paatypeltiHinta, 10);
-    const jiiripeltiHintaInt = parseInt(jiiripeltiHinta, 10);
-
-    const tippalistaHintaInt = parseInt(tippalistaHinta, 10);
-    const savupiippuHintaInt = parseInt(savupiippuHinta, 10);
-    const vilpeKartioHintaInt = parseInt(vilpeKartioHinta, 10);
-    const vilpeKantikasHintaInt = parseInt(vilpeKantikasHinta, 10);
-    const otsalautaHintaInt = parseInt(otsalautaHinta, 10);
-    const lumiesteHintaInt = parseInt(lumiesteHinta, 10);
-    const lapetikasHintaInt = parseInt(lapetikasHinta, 10);
-    const seinatikasHintaInt = parseInt(seinatikasHinta, 10);
-  
-
-    const ranniKulmaHintaInt = parseInt(ranniKulmaHinta, 10);
-    const vilpeElementtiHintaInt = parseInt(vilpeElementtiHinta, 10);
-
+    const vesikouruHintaInt = parseInt(this.state.vesikouru * 13, 10);
+    const syoksyputkiHintaInt = parseInt(this.state.syoksyputki * 65, 10);
+    const harjapeltiHintaInt = parseInt(this.state.harjapelti * 2.7, 10);
+    const paatypeltiHintaInt = parseInt(this.state.paatypelti * 2, 10);
+    const jiiripeltiHintaInt = parseInt(this.state.jiiripelti * 12, 10);
+    const tippalistaHintaInt = parseInt(this.state.tippalista * 4, 10);
+    const savupiippuHintaInt = parseInt(this.state.savupiippu * 35, 10);
+    const vilpeKartioHintaInt = parseInt(this.state.vilpeKartio * 20, 10);
+    const vilpeKantikasHintaInt = parseInt(this.state.vilpeKantikas * 30, 10);
+    const otsalautaHintaInt = parseInt(this.state.otsalauta * 1.8, 10);
+    const lumiesteHintaInt = parseInt(this.state.lumieste * 13, 10);
+    const lapetikasHintaInt = parseInt(this.state.lapetikas * 100, 10);
+    const seinatikasHintaInt = parseInt(this.state.seinatikas * 100, 10);
+    const ranniKulmaHintaInt = parseInt(this.state.ranniKulma * 20, 10);
+    const vilpeElementtiHintaInt = parseInt(this.state.vilpeElementti * 85, 10);
     const kiinteaKitti = 20;
-
-
-
-
 
     const kokonaisHinta = 
     kattopeltiHintaInt+
@@ -170,70 +138,36 @@ class Calculator extends React.Component {
     seinatikasHintaInt+
     ranniKulmaHintaInt+
     vilpeElementtiHintaInt+
-
     kiinteaKitti
     ;
 
 
-    // Määrittää LocalStoragen avaimeen tarjouksia tietoja. Erottelee | merkillä Local Storagessa |merkki vaihtaa riviä, alempi on ekan printtaus
-    if (localStorage.tarjouksia) {
-      localStorage.tarjouksia =
-        `${this.state.asiakas}, ${kokonaisHinta}€|` +
-        localStorage.tarjouksia;
-    } else {
-      localStorage.tarjouksia = `${this.state.asiakas}, ${kokonaisHinta}€|`;
-    }
-    this.noPriceFunction();
-    this.resetFields();
+    this.setState({
+      kokonaisHintaState: kokonaisHinta,
+      tarjouksia: true,
+    });
   };
 
-  // Jos LocalStorage on käytössä, suorittaa funktion saveToLocalStorage(), jonka jälkeen suorittaa setHistoryState()
-  calcPrice = () => {
-    if (typeof Storage !== 'undefined') {
-      this.saveToLocalStorage();
+
+calcProfit = () => {
+
+  let pyyntiAlvNolla = `${this.state.pyydettyHinta/124*100}`;
+  let laskettuHinta = `${this.state.kokonaisHintaState}`;
+
+  let pyyntiAlvNollaInt = parseInt(pyyntiAlvNolla, 10);
+  let laskettuHintaInt = parseInt(laskettuHinta, 10);
   
-    } else {
-      console.error('local storage not supported');
-    }
-    this.setHistoryState();
-  };
+  console.log(`alv nolla pyynti = ${pyyntiAlvNollaInt}`)
+  console.log(`laskettu hinta alv 0 on = ${laskettuHintaInt}`)
 
-  // Poistaa Local Storagesta kohteen "tarjouksia", eli käytännössä siis tyhjentää koko historian -> Tämän jälkeen suorittaa setHistoryState() funktion
-  resetHistory = () => { 
-    if (localStorage.tarjouksia) {
-      localStorage.removeItem('tarjouksia');
-      this.noPriceFunction();
+  let kate = pyyntiAlvNollaInt-laskettuHintaInt;
 
-    }
-    this.setHistoryState();
-  };
-
-
-
-
-
-
-  noPriceFunction = () => {
-
-    if (localStorage.tarjouksia) {
-      this.setState({ tarjouksia: true });
-    }else {
-      this.setState({ tarjouksia: false });
-    }
-  }
-
-
-
-  setHistoryState = () => {
-    if (localStorage.tarjouksia) {
-      this.setState({ history: localStorage.tarjouksia.split('|') });
-    } else {
-      this.setState({ history: [] });
-    }
-  };
-
-
-
+  this.setState({
+    myyntiKate: kate,
+    myyntikatelaskelma: true,
+  });
+  
+};
 
 
  // Tarkastelee input kenttää ja tallentaa arvoa muuttuvasti state.valueen.
@@ -249,17 +183,8 @@ class Calculator extends React.Component {
           <div className="wrapper">
             <div className="left">
               <h4>MITTATIEDOT</h4>
-              <div className="inputs">
-                <Form.Group onSubmit={this.handleSubmit}>
-
-                    <Form.Control
-                      className='syotekentat'
-                      type='text'  
-                      name='asiakas'
-                      placeholder='Asiakkaan nimi' 
-                      value = {this.state.asiakas} 
-                      onChange={this.handleChange}
-                    />
+              <div className="inputs " >
+                <Form.Group onSubmit={this.handleSubmit} >
                    
                     <Form.Control
                       className='syotekentat'
@@ -403,7 +328,7 @@ class Calculator extends React.Component {
                     /> 
 
                     <Form.Control 
-                      className='syotekentat'
+                      className='syotekentat mobiili-last'
                       type='number'
                       name='ranniKulma' 
                       placeholder='Rännikulmia (kpl)'
@@ -415,30 +340,67 @@ class Calculator extends React.Component {
             </div>
 
             <div className="buttons-mobiili">
-              <Button className={"tarjouslaskin-buttons"} variant="success" size="lg" onClick={this.calcPrice}>Laske</Button>
-              <Button className={"tarjouslaskin-buttons"} variant="warning" size="lg" onClick={this.resetHistory}>Poista historia</Button>
+              <Button className={"tarjouslaskin-buttons"} variant="success" size="lg" onClick={this.calcPrice}>Laske tarjous</Button>
+              <Button className={"tarjouslaskin-buttons mobiili-last"} variant="warning" size="lg" onClick={this.resetFields}>Tyhjennä kentät</Button>
             </div>
             
             <div className="right">
             <h4>LASKELMA</h4>
               <div className="hinnat rounded">
-              
                 <div className={'tulostaulu-main'}>
                   <div id={'aikalista'} className={'tulostaulu'}>
                     <ul>
                       {this.state.tarjouksia === false && ('Ei laskettuja tarjouksia!')}
-                      {this.state.tarjouksia === true && (<div>{this.state.history.map((item, index) => <li key={index}>{item}</li>)}</div>)}
+                      {this.state.tarjouksia === true && (<div>Urakka {this.state.kokonaisHintaState}€ alv. 0%</div>)}
                     </ul>
                   </div>
                 </div>
               </div>
+
+              <Form.Group onSubmit={this.handleSubmit} class="form-group-left">
+                <Form.Control
+                  className='syotekentat hinnat hintaehdotus'
+                  type='text'  
+                  name='pyydettyHinta'
+                  placeholder='Pyydetty hinta (€)' 
+                  value = {this.state.pyydettyHinta} 
+                  onChange={this.handleChange}
+                />
+              </Form.Group>
+
+              <div className="hinnat rounded mobiili-last">
+                <div className={'tulostaulu-main'}>
+                  <div id={'aikalista'} className={'tulostaulu'}>
+                    <ul>
+                        {this.state.myyntikatelaskelma === false && ('Ei laskettuja tarjouksia!')}
+                        {this.state.myyntikatelaskelma === true && (<div>Kate {this.state.myyntiKate}€ alv. 0%</div>)}
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
             </div>
+
+            <div className="buttons-mobiili">
+              <Button className={"tarjouslaskin-buttons"} variant="success" size="lg" onClick={this.calcProfit}>Laske kate</Button>
+              <Button className={"tarjouslaskin-buttons mobiili-last"} variant="danger" size="lg" onClick={this.resetCalculations}>Poista laskelma</Button>
+            </div>
+            
 
           </div> {/* WRAPPER PÄÄTTYY */}
 
           <div className="buttons-desktop">
-            <Button className={"tarjouslaskin-buttons"} variant="success" size="lg" onClick={this.calcPrice}>Laske</Button>
-            <Button className={"tarjouslaskin-buttons"} variant="warning" size="lg" onClick={this.resetHistory}>Poista historia</Button>
+            <div className="d-flex flex-column">
+              <div id="desktop-first-row" class="d-flex flex-row mt-1">
+                <Button className={"tarjouslaskin-buttons"} variant="success" size="lg" onClick={this.calcPrice}>Laske tarjous</Button>
+                <Button className={"tarjouslaskin-buttons"} variant="success" size="lg" onClick={this.calcProfit}>Laske kate</Button>
+              </div>
+              <div id="desktop-second-row" class="d-flex flex-row mb-4">
+                <Button className={"tarjouslaskin-buttons"} variant="warning" size="lg" onClick={this.resetFields}>Tyhjennä kentät</Button>
+                <Button className={"tarjouslaskin-buttons"} variant="danger" size="lg" onClick={this.resetCalculations}>Poista laskelma</Button>
+              </div>
+              
+            </div>
           </div>
 
         </div>

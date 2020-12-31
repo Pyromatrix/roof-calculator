@@ -25,6 +25,7 @@ html, body, #root, #root>div {
     
 }
 
+
 .main-div {
     display: flex;
     align-items: center;
@@ -47,7 +48,7 @@ html, body, #root, #root>div {
 .tarjouslaskin-buttons {
     width: 300px;
     margin: 5px;
-    margin-bottom: 25px;
+    margin-bottom: 10px;
 }
 
 .inputs {
@@ -60,13 +61,12 @@ html, body, #root, #root>div {
 
     margin-bottom: 5px;
 }
+
+
 .form-group {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
-    text-align: center;
-    flex-direction: column;
+margin-bottom: 0px !important;
+width: 100%;
+
 }
 
 /* Poistaa list style pisteen aiheuttaman marginin sekä itse pisteen*/
@@ -74,6 +74,7 @@ ul, li {
     margin: 0px;
     padding: 0px;
     list-style: none;
+    display: inline-block;
 }
 
 .wrapper {
@@ -86,8 +87,15 @@ ul, li {
     width: 300px;
     background-color: WHITE;
     color: #6f6f6f;
-    height: 768.8px;
+    height: 100px;
     margin-left: 5px;
+    margin-bottom: 5px;
+
+    font-size: 20px !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
 }
 
 .vaihto {
@@ -102,15 +110,22 @@ ul, li {
 }
 
 
-@media only screen and (min-width: 768px) { /* PUHELIN */
+@media only screen and (min-width: 768px) { /* PC ja isot pädit */
 
     .buttons-mobiili {
         display: none;
     }
+    .syotekentat {
+        margin-left: 5px;
+    }
+
+    .hinnat {
+        height: 81px !important;
+   }
 
 }
 
-@media only screen and (max-width: 767px) { /* PUHELIN */
+@media only screen and (max-width: 767px) { /* PUHELIN ja pad */
 
     .wrapper {
         flex-direction: column !important; /* TÄÄ MOBIILIIN COLUMN*/
@@ -125,10 +140,14 @@ ul, li {
     }
 
    .hinnat {
-       height: 200px;
-       margin-left: 0px;
-       width: 80%;
-       margin-bottom: 20px;
+        height: 50px;
+        margin-left: 0px;
+        width: 80%;
+        margin-bottom: 15px;
+        font-size: 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
    }
    .inputs {
        margin-right: 0px;
@@ -137,7 +156,11 @@ ul, li {
        margin-top: 10px;
    }
    .buttons-desktop {
-       display: none;
+       display: none !important;
+   }
+   
+   .hintaehdotus {
+       height: 50px !important;
    }
 
    .right {
@@ -152,12 +175,30 @@ ul, li {
    .syotekentat {
     width: 80% !important;
     text-align: center;
+    margin-left: 0px !important;
     }
 
     
     .tarjouslaskin-buttons {
     margin: 5px;
     width: 80%;
+    }
+
+    .form-group {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+        text-align: center;
+        flex-direction: column;
+    }
+
+    .mobiili-last {
+        margin-bottom: 30px;
+    }
+
+    .tulostaulu ul {
+        margin-bottom: 0px;
     }
 
 }

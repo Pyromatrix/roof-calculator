@@ -194,7 +194,7 @@ calcProfit = () => {
 
           <div className="wrapper">
             <div className="left">
-              <h4>MITTATIEDOT - KOKEILU V1.0</h4>
+              <h4>MITTATIEDOT</h4>
               <div className="inputs " >
                 <Form.Group onSubmit={this.handleSubmit} >
                    
@@ -389,7 +389,8 @@ calcProfit = () => {
               <Form.Group onSubmit={this.handleSubmit} class="form-group-left">
                 <Form.Control
                   className='syotekentat hinnat hintaehdotus'
-                  type='text'  
+                  pattern='[0-9]*' // iOs numeronäppikselle
+                  type='number'  
                   name='pyydettyHinta'
                   placeholder='Pyydetty hinta (€)' 
                   value = {this.state.pyydettyHinta} 

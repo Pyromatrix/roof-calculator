@@ -202,7 +202,8 @@ calcProfit = () => {
                       className='syotekentat'
                       type='text'  
                       name='peltiProfiili'
-                      placeholder='Peltiprofiili (LL tai TT)' 
+                      placeholder='Peltiprofiili (LL tai TT)'
+                      style="text-transform:uppercase"
                       value = {this.state.peltiProfiili} 
                       onChange={this.handleChange}
                     />
@@ -218,7 +219,8 @@ calcProfit = () => {
 
                     <Form.Control
                       className='syotekentat'
-                      type='number'  
+                      type='number'
+                      pattern='[0-9]*'
                       name='pintaAla'
                       placeholder='Pinta-ala (m2)' 
                       value = {this.state.pintaAla} 
@@ -227,6 +229,7 @@ calcProfit = () => {
                     <Form.Control 
                       className='syotekentat'
                       type='number'
+                      pattern='[0-9]*'
                       name='vesikouru'
                       placeholder='Vesikourua (m)'  
                       value={this.state.vesikouru} 
@@ -235,6 +238,7 @@ calcProfit = () => {
                     <Form.Control 
                       className='syotekentat'
                       type='number'
+                      pattern='[0-9]*'
                       name='otsalauta'
                       placeholder='Otsalautaa (m)'  
                       value={this.state.otsalauta} 
@@ -244,6 +248,7 @@ calcProfit = () => {
                     <Form.Control
                       className='syotekentat'
                       type='number'
+                      pattern='[0-9]*'
                       name='syoksyputki' 
                       placeholder='Syöksyputket (kpl)'
                       value={this.state.syoksyputki} 
@@ -253,6 +258,7 @@ calcProfit = () => {
                     <Form.Control
                       className='syotekentat'
                       type='number'
+                      pattern='[0-9]*'
                       name='harjapelti' 
                       placeholder='Harjapeltiä (m)'
                       value={this.state.harjapelti} 
@@ -262,6 +268,7 @@ calcProfit = () => {
                     <Form.Control 
                       className='syotekentat'
                       type='number'
+                      pattern='[0-9]*'
                       name='jiiripelti' 
                       placeholder='Jiiripeltiä (m)'
                       value={this.state.jiiripelti} 
@@ -271,6 +278,7 @@ calcProfit = () => {
                     <Form.Control 
                       className='syotekentat'
                       type='number'
+                      pattern='[0-9]*'
                       name='savupiippu' 
                       placeholder='Savupiippuja (kpl)'
                       value={this.state.savupiippu} 
@@ -280,6 +288,7 @@ calcProfit = () => {
                     <Form.Control 
                       className='syotekentat'
                       type='number'
+                      pattern='[0-9]*'
                       name='vilpeKartio' 
                       placeholder='Vilpe - kartio (kpl)'
                       value={this.state.vilpeKartio} 
@@ -289,6 +298,7 @@ calcProfit = () => {
                     <Form.Control 
                       className='syotekentat'
                       type='number'
+                      pattern='[0-9]*'
                       name='vilpeKantikas' 
                       placeholder='Vilpe - kantikas (kpl)'
                       value={this.state.vilpeKantikas} 
@@ -298,6 +308,7 @@ calcProfit = () => {
                     <Form.Control 
                       className='syotekentat'
                       type='number'
+                      pattern='[0-9]*'
                       name='vilpeElementti' 
                       placeholder='Vilpe - elementti (kpl)'
                       value={this.state.vilpeElementti} 
@@ -307,6 +318,7 @@ calcProfit = () => {
                     <Form.Control 
                       className='syotekentat'
                       type='number'
+                      pattern='[0-9]*'
                       name='lumieste' 
                       placeholder='Lumiestettä (m)'
                       value={this.state.lumieste} 
@@ -316,6 +328,7 @@ calcProfit = () => {
                     <Form.Control 
                       className='syotekentat'
                       type='number'
+                      pattern='[0-9]*'
                       name='lapetikas' 
                       placeholder='Lapetikkaita (kpl)'
                       value={this.state.lapetikas} 
@@ -325,6 +338,7 @@ calcProfit = () => {
                     <Form.Control 
                       className='syotekentat'
                       type='number'
+                      pattern='[0-9]*'
                       name='seinatikas' 
                       placeholder='Seinätikkaita (kpl)'
                       value={this.state.seinatikas} 
@@ -334,6 +348,7 @@ calcProfit = () => {
                     <Form.Control 
                       className='syotekentat'
                       type='number'
+                      pattern='[0-9]*'
                       name='tippalista' 
                       placeholder='Tippalistaa (m)'
                       value={this.state.tippalista} 
@@ -343,6 +358,7 @@ calcProfit = () => {
                     <Form.Control 
                       className='syotekentat mobiili-last'
                       type='number'
+                      pattern='[0-9]*'
                       name='ranniKulma' 
                       placeholder='Rännikulmia (kpl)'
                       value={this.state.ranniKulma} 

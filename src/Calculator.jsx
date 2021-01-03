@@ -194,7 +194,7 @@ calcProfit = () => {
 
           <div className="wrapper">
             <div className="left">
-              <h4>MITTATIEDOT</h4>
+              <h4>MITTATIEDOT - KOKEILU V1.0</h4>
               <div className="inputs " >
                 <Form.Group onSubmit={this.handleSubmit} >
                    
@@ -219,7 +219,7 @@ calcProfit = () => {
 
                     <Form.Control
                       className='syotekentat'
-                      pattern='[0-9]*'
+                      pattern='[0-9]*' 
                       type='number'
                       name='pintaAla'
                       placeholder='Pinta-ala (m2)' 
@@ -228,7 +228,7 @@ calcProfit = () => {
                     /> 
                     <Form.Control 
                       className='syotekentat'
-                      pattern='[0-9]*'
+                      pattern='[0-9]*' 
                       type='number'
                       name='vesikouru'
                       placeholder='Vesikourua (m)'  
@@ -237,7 +237,7 @@ calcProfit = () => {
                     /> 
                     <Form.Control 
                       className='syotekentat'
-                      pattern='[0-9]*'
+                      pattern='[0-9]*' 
                       type='number'
                       name='otsalauta'
                       placeholder='Otsalautaa (m)'  
@@ -247,7 +247,7 @@ calcProfit = () => {
 
                     <Form.Control
                       className='syotekentat'
-                      pattern='[0-9]*'
+                      pattern='[0-9]*' 
                       type='number'
                       name='syoksyputki' 
                       placeholder='Syöksyputket (kpl)'
@@ -257,7 +257,7 @@ calcProfit = () => {
 
                     <Form.Control
                       className='syotekentat'
-                      pattern='[0-9]*'
+                      pattern='[0-9]*' 
                       type='number'
                       name='harjapelti' 
                       placeholder='Harjapeltiä (m)'
@@ -267,7 +267,7 @@ calcProfit = () => {
 
                     <Form.Control 
                       className='syotekentat'
-                      pattern='[0-9]*'
+                      pattern='[0-9]*' 
                       type='number'
                       name='jiiripelti' 
                       placeholder='Jiiripeltiä (m)'
@@ -277,7 +277,7 @@ calcProfit = () => {
 
                     <Form.Control 
                       className='syotekentat'
-                      pattern='[0-9]*'
+                      pattern='[0-9]*' 
                       type='number'
                       name='savupiippu' 
                       placeholder='Savupiippuja (kpl)'
@@ -287,7 +287,7 @@ calcProfit = () => {
 
                     <Form.Control 
                       className='syotekentat'
-                      pattern='[0-9]*'
+                      pattern='[0-9]*' 
                       type='number'
                       name='vilpeKartio' 
                       placeholder='Vilpe - kartio (kpl)'
@@ -297,7 +297,7 @@ calcProfit = () => {
 
                     <Form.Control 
                       className='syotekentat'
-                      pattern='[0-9]*'
+                      pattern='[0-9]*' 
                       type='number'
                       name='vilpeKantikas' 
                       placeholder='Vilpe - kantikas (kpl)'
@@ -307,7 +307,7 @@ calcProfit = () => {
 
                     <Form.Control 
                       className='syotekentat'
-                      pattern='[0-9]*'
+                      pattern='[0-9]*' 
                       type='number'
                       name='vilpeElementti' 
                       placeholder='Vilpe - elementti (kpl)'
@@ -317,7 +317,7 @@ calcProfit = () => {
 
                     <Form.Control 
                       className='syotekentat'
-                      pattern='[0-9]*'
+                      pattern='[0-9]*' 
                       type='number'
                       name='lumieste' 
                       placeholder='Lumiestettä (m)'
@@ -327,7 +327,7 @@ calcProfit = () => {
 
                     <Form.Control 
                       className='syotekentat'
-                      pattern='[0-9]*'
+                      pattern='[0-9]*' 
                       type='number'
                       name='lapetikas' 
                       placeholder='Lapetikkaita (kpl)'
@@ -337,7 +337,7 @@ calcProfit = () => {
 
                     <Form.Control 
                       className='syotekentat'
-                      pattern='[0-9]*'
+                      pattern='[0-9]*' 
                       type='number'
                       name='seinatikas' 
                       placeholder='Seinätikkaita (kpl)'
@@ -347,7 +347,7 @@ calcProfit = () => {
 
                     <Form.Control 
                       className='syotekentat'
-                      pattern='[0-9]*'
+                      pattern='[0-9]*' 
                       type='number'
                       name='tippalista' 
                       placeholder='Tippalistaa (m)'
@@ -357,7 +357,7 @@ calcProfit = () => {
 
                     <Form.Control 
                       className='syotekentat mobiili-last'
-                      pattern='[0-9]*'
+                      pattern='[0-9]*' 
                       type='number'
                       name='ranniKulma' 
                       placeholder='Rännikulmia (kpl)'

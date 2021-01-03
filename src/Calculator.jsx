@@ -200,7 +200,7 @@ calcProfit = () => {
                    
                     <Form.Control
                       className='syotekentat'
-                      style='text-transform:uppercase'
+                      style={{textTransform: 'uppercase'}}
                       type='text'  
                       name='peltiProfiili'
                       placeholder='Peltiprofiili (LL tai TT)'
